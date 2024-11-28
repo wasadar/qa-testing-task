@@ -1,73 +1,43 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+## Pre-Requisites
+[Node](https://nodejs.org/en/download/package-manager) JavaScript runtime environment.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+## Setup
 
 ```bash
+# clone repo
+$ git clone https://github.com/InnerWorks-me/qa-testing-task.git
+
+# install dependencies
 $ npm install
+
+# run integration tests
+$ npm run test:integration
 ```
+Ensure the tests all pass, if not, let us know before starting.
 
-## Running the app
+## Navigating the Repo
 
+The `src` folder contains the main source code, which is a simple CRUD application editing an in-memory data source. The files included are `task.module`, `task.controller`, `task.service`, and `main.ts`. For more information on the structure of a NestJS application see the docs on [controllers](https://docs.nestjs.com/controllers), [providers](https://docs.nestjs.com/providers), and [modules](https://docs.nestjs.com/modules). 
+
+The `test` folder contains an integration test to check the application functionality, it currently only tests the endpoint to create an item, the task will be to test the other functionality (see below). The files included are `task.intergation-test-cases`, `task.integration.spec`, and `jest-integration.json`.
+
+## The Task
+
+The task will be based around the `task.integration.spec` files and the `task.integration-test-cases` files. The `task.integration.spec` file has code to launch the application, a function to call the `/items` POST endpoint, and two tests for success and failure when calling that endpoint. 
+
+There are four other endpoints to be tested:
+1. `/items` GET
+2. `/items/{id}` GET
+3. `/items/:id` PUT
+4. `/items/:id` DELETE
+All endpoints can be seen in the `task.controller` file in `src`.
+
+Your task will involve the following:
+1. Add 8 new test cases to the `task.integration-test-cases` file, a success and failure test case for each of the endpoints.
+2. Add 4 new functions to `task.integration.spec` to call each of the endpoints, using the `testCreateEndpointScenario` function as an example.
+3. Add 8 new tests to `task.integration.spec` using each of the 8 test cases created in `task.integration-test-cases`.
+
+All test cases should successfully run with
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+$ npm run test:integration
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
