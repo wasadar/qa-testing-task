@@ -33,7 +33,7 @@ There are four other endpoints to be tested:
 
 All endpoints can be seen in the `task.controller` file in `src`.
 
-Your task will involve the following:
+Your task is:
 1. Add 8 new test cases to the `task.integration-test-cases` file, a success and failure test case for each of the endpoints.
 2. Add 4 new functions to `task.integration.spec` to call each of the endpoints, using the `testCreateEndpointScenario` function as an example.
 3. Add 8 new tests to `task.integration.spec` using each of the 8 test cases created in `task.integration-test-cases`.
